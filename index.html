@@ -3,7 +3,7 @@
 <html lang="es" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <meta name="referrer" content="no-referrer" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; img-src 'self' https: data: blob:; media-src 'self' https: data: blob:; font-src 'self' https: data:; connect-src 'self' https:; frame-src 'self' https:;" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -331,36 +331,44 @@
 
   <!-- ==================== DRAWER DEL MENÚ MÓVIL ==================== -->
   <div id="mobileMenuBackdrop" onclick="toggleMobileMenu()" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden xl:hidden transition-opacity"></div>
-  <aside id="mobileMenu" class="fixed top-0 right-0 bottom-0 z-[60] w-72 max-w-[85vw] bg-white border-l border-auraBorder shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col xl:hidden">
+  <aside id="mobileMenu" class="fixed top-0 right-0 bottom-0 z-[60] w-80 max-w-[88vw] bg-white border-l border-auraBorder shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col xl:hidden">
     <div class="p-4 border-b border-slate-100 flex items-center justify-between">
-      <span class="font-serif text-base font-bold text-slate-900" data-i18n="nav.menuTitle">Navegación</span>
-      <button onclick="toggleMobileMenu()" class="p-1 text-slate-400 hover:text-slate-800 text-2xl font-bold leading-none">✕</button>
+      <div class="flex items-center gap-2">
+        <span class="font-serif text-base font-bold text-slate-900" data-i18n="nav.menuTitle">Navegación</span>
+      </div>
+      <button onclick="toggleMobileMenu()" class="p-1 text-slate-400 hover:text-slate-800 text-2xl font-bold leading-none focus:outline-none" aria-label="Cerrar menú">✕</button>
     </div>
     
-    <!-- Selector Móvil de Moneda e Idioma (Texto Limpio Desplegable) -->
-    <div class="px-5 py-3 bg-slate-50 border-b border-slate-100 flex items-center justify-between text-xs">
-      <div class="flex items-center gap-3">
-        <!-- Moneda Móvil -->
-        <div class="flex items-center gap-1 text-slate-700">
-          <label for="mobileCurrencySelect" class="text-[10px] uppercase font-bold text-slate-400">Moneda:</label>
-          <select id="mobileCurrencySelect" onchange="setCurrency(this.value)" class="bg-transparent font-bold text-slate-800 text-xs focus:outline-none cursor-pointer">
-            <option value="USD">USD ($)</option>
-            <option value="MXN">MXN ($)</option>
-          </select>
-        </div>
+    <!-- Selector Móvil de Moneda e Idioma (Apilado Vertical Limpio) -->
+    <div class="px-5 py-3.5 bg-slate-50 border-b border-slate-100 space-y-2.5 text-xs">
+      <div class="flex items-center justify-between">
+        <span class="text-[10px] font-mono text-auraGold uppercase tracking-wider font-bold">Cancún Lighthouse Marina</span>
+        <span class="text-[9px] font-mono text-slate-400 uppercase tracking-wider bg-white px-2 py-0.5 rounded-full border border-slate-200">Ajustes</span>
+      </div>
 
-        <span class="text-slate-300">|</span>
-
-        <!-- Idioma Móvil -->
-        <div class="flex items-center gap-1 text-slate-700">
-          <label for="mobileLangSelect" class="text-[10px] uppercase font-bold text-slate-400">Idioma:</label>
-          <select id="mobileLangSelect" onchange="setLanguage(this.value)" class="bg-transparent font-bold text-slate-800 text-xs focus:outline-none cursor-pointer">
-            <option value="es">Español</option>
-            <option value="en">English</option>
+      <!-- Moneda Móvil Vertical -->
+      <div class="bg-white px-3 py-2.5 rounded-xl border border-slate-200 flex items-center justify-between shadow-2xs">
+        <label for="mobileCurrencySelect" class="text-[11px] uppercase font-bold text-slate-500 tracking-wider">Moneda</label>
+        <div class="relative">
+          <select id="mobileCurrencySelect" onchange="setCurrency(this.value)" class="bg-transparent font-bold text-slate-800 text-xs pr-4 focus:outline-none cursor-pointer appearance-none">
+            <option value="USD">USD ($) · Dólares</option>
+            <option value="MXN">MXN ($) · Pesos</option>
           </select>
+          <span class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[10px]">▼</span>
         </div>
       </div>
-      <span class="text-[10px] font-mono text-auraGold uppercase tracking-wider font-semibold">Cancún</span>
+
+      <!-- Idioma Móvil Vertical -->
+      <div class="bg-white px-3 py-2.5 rounded-xl border border-slate-200 flex items-center justify-between shadow-2xs">
+        <label for="mobileLangSelect" class="text-[11px] uppercase font-bold text-slate-500 tracking-wider">Idioma</label>
+        <div class="relative">
+          <select id="mobileLangSelect" onchange="setLanguage(this.value)" class="bg-transparent font-bold text-slate-800 text-xs pr-4 focus:outline-none cursor-pointer appearance-none">
+            <option value="es">Español (ES)</option>
+            <option value="en">English (EN)</option>
+          </select>
+          <span class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[10px]">▼</span>
+        </div>
+      </div>
     </div>
     <div class="p-5 space-y-4 text-xs uppercase tracking-widest font-semibold text-slate-700 flex-1 overflow-y-auto">
       <button onclick="navigate('servicios'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-slate-50 hover:text-auraTeal" data-i18n="nav.amenities">Marina &amp; Slips</button>
@@ -400,6 +408,8 @@
         muted 
         loop 
         playsinline 
+        webkit-playsinline
+        preload="auto"
         poster="https://cancunlighthousemarina.com/wp-content/uploads/2026/07/Hero-Slips.webp" 
         class="absolute inset-0 w-full h-full object-cover filter brightness-[0.55] select-none pointer-events-none"
         style="object-position: 70% 60%;"
@@ -510,6 +520,9 @@
         <div id="yachtsCarouselContainer" class="relative overflow-hidden rounded-2xl p-1 cursor-grab active:cursor-grabbing select-none">
           <div id="yachtsGridTrack" class="flex transition-transform duration-500 ease-out"></div>
         </div>
+
+        <!-- Indicador de Puntos (Dots) del Carrusel -->
+        <div id="yachtCarouselDots" class="flex items-center justify-center gap-2 mt-4 sm:mt-6"></div>
       </div>
     </section>
 
@@ -4079,6 +4092,7 @@ function navigate(pageId) {
       if (pageId === "inicio") {
         startYachtAutoSlide();
         updateYachtCarousel();
+        playHeroVideo();
       } else {
         stopYachtAutoSlide();
       }
@@ -4350,15 +4364,49 @@ function navigate(pageId) {
       if (!track) return;
       const maxIndex = getMaxYachtIndex();
       if (yachtCarouselIndex > maxIndex) yachtCarouselIndex = maxIndex;
-      const stepPercent = window.innerWidth >= 1024 ? 33.333 : (window.innerWidth >= 640 ? 50 : 100);
+      if (yachtCarouselIndex < 0) yachtCarouselIndex = 0;
+
+      const isMobile = window.innerWidth < 640;
+      const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
+      const stepPercent = isMobile ? 86 : (isTablet ? 50 : 33.333);
       track.style.transform = "translateX(-" + (yachtCarouselIndex * stepPercent) + "%)";
+
+      renderYachtCarouselDots();
+    }
+
+    function renderYachtCarouselDots() {
+      const dotsContainer = document.getElementById("yachtCarouselDots");
+      if (!dotsContainer) return;
+      const maxIndex = getMaxYachtIndex();
+      const totalDots = maxIndex + 1;
+
+      dotsContainer.innerHTML = Array.from({ length: totalDots }).map((_, idx) => {
+        const isActive = idx === yachtCarouselIndex;
+        return `
+          <button 
+            type="button"
+            onclick="goToYachtSlide(${idx})" 
+            class="h-2 rounded-full transition-all duration-300 focus:outline-none cursor-pointer ${
+              isActive ? 'w-6 bg-auraNavy shadow-sm' : 'w-2 bg-slate-300 hover:bg-slate-400'
+            }"
+            aria-label="Ir a diapositiva ${idx + 1}"
+          ></button>
+        `;
+      }).join("");
+    }
+
+    function goToYachtSlide(idx) {
+      stopYachtAutoSlide();
+      yachtCarouselIndex = idx;
+      updateYachtCarousel();
+      startYachtAutoSlide();
     }
 
     function startYachtAutoSlide() {
       stopYachtAutoSlide();
       yachtAutoSlideInterval = setInterval(() => {
         nextYachtSlide(true);
-      }, 4500);
+      }, 5000);
     }
 
     function stopYachtAutoSlide() {
@@ -4374,14 +4422,18 @@ function navigate(pageId) {
       container._hasTouchEvents = true;
 
       let touchStartX = 0;
+      let touchStartY = 0;
       let touchCurrentX = 0;
+      let touchCurrentY = 0;
       let isTouching = false;
 
       container.addEventListener("touchstart", (e) => {
         stopYachtAutoSlide();
         if (e.touches.length === 1) {
           touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
           touchCurrentX = touchStartX;
+          touchCurrentY = touchStartY;
           isTouching = true;
         }
       }, { passive: true });
@@ -4389,13 +4441,16 @@ function navigate(pageId) {
       container.addEventListener("touchmove", (e) => {
         if (!isTouching || e.touches.length !== 1) return;
         touchCurrentX = e.touches[0].clientX;
+        touchCurrentY = e.touches[0].clientY;
       }, { passive: true });
 
       container.addEventListener("touchend", () => {
         if (!isTouching) return;
         isTouching = false;
         const diffX = touchStartX - touchCurrentX;
-        if (Math.abs(diffX) > 40) {
+        const diffY = touchStartY - touchCurrentY;
+        // Solo deslizar si el movimiento horizontal supera al vertical para no interferir con el scroll
+        if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
           if (diffX > 0) {
             nextYachtSlide(false);
           } else {
@@ -4427,22 +4482,32 @@ function navigate(pageId) {
         const yachtImg = y.img || getDriveImageUrl(y.driveId);
 
         return `
-          <article class="bg-white rounded-2xl overflow-hidden shadow-aura-card border-2 border-slate-200 p-4 sm:p-6 flex flex-col justify-between hover:border-auraNavy transition-all h-full">
+          <article class="bg-white rounded-2xl overflow-hidden shadow-aura-card border-2 border-slate-200 p-4 sm:p-5 flex flex-col justify-between hover:border-auraNavy transition-all h-full">
             <div>
               <div onclick="openItemDetailModal('${y.id}', 'Yate')" class="cursor-pointer">
-                <span class="text-xs font-bold uppercase tracking-widest text-slate-500 block mb-1.5">${y.model}</span>
-                <div class="h-40 sm:h-44 w-full rounded-xl overflow-hidden mb-3 sm:mb-4 bg-slate-100">
-                  <img src="${yachtImg}" alt="${y.name}" data-drive-id="${y.driveId || ''}" data-fallback="${getYachtFallback(y.id)}" referrerpolicy="no-referrer" class="w-full h-full object-cover hover:scale-105 transition-transform" onerror="handleImgError(this)" decoding="async" />
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-auraTeal font-mono">${y.model}</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">${y.length} Pies</span>
                 </div>
-                <h3 class="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-1">${y.name}</h3>
-                <p class="text-xs text-slate-500 mb-3 sm:mb-4 line-clamp-2">${currentLang === "es" ? y.descEs : y.descEn}</p>
+                <div class="h-48 sm:h-52 w-full rounded-xl overflow-hidden mb-3 bg-slate-100 relative group/img">
+                  <img src="${yachtImg}" alt="${y.name}" data-drive-id="${y.driveId || ''}" data-fallback="${getYachtFallback(y.id)}" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500" onerror="handleImgError(this)" decoding="async" />
+                </div>
+                <h3 class="font-serif text-lg sm:text-xl font-bold text-slate-900 mb-1 truncate">${y.name}</h3>
+                <p class="text-xs text-slate-500 mb-2.5 line-clamp-2 leading-relaxed">${currentLang === "es" ? y.descEs : y.descEn}</p>
               </div>
 
-              <div class="mb-3 sm:mb-4">
-                <span class="text-xs uppercase font-bold text-slate-400 block mb-1.5">
+              <!-- Fila Compacta de Especificaciones Náuticas -->
+              <div class="flex items-center justify-between text-[11px] text-slate-600 mb-2.5 px-2.5 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                <span>Capacidad: <strong>Hasta ${y.pax} PAX</strong></span>
+                <span class="text-slate-300">·</span>
+                <span>Salida: <strong>La Isla 1</strong></span>
+              </div>
+
+              <div class="mb-3">
+                <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">
                   ${currentLang === "es" ? "Seleccionar Horas:" : "Select Duration:"}
                 </span>
-                <div class="grid grid-cols-4 gap-1.5">
+                <div class="grid grid-cols-4 gap-1 sm:gap-1.5">
                   ${[1, 4, 6, 8].map(h => {
                     const isAvail = y.ratesMxn[h] !== null && y.ratesMxn[h] !== undefined;
                     const isActive = currentDur === h && isAvail;
@@ -4451,7 +4516,7 @@ function navigate(pageId) {
                         type="button"
                         onclick="setYachtDuration('${y.id}', ${h})" 
                         ${!isAvail ? "disabled" : ""}
-                        class="py-1.5 px-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all ${
+                        class="py-1 px-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all ${
                           !isAvail ? "bg-slate-100 text-slate-300 cursor-not-allowed line-through" :
                           isActive ? "bg-auraNavy text-white shadow-sm" :
                           "bg-slate-50 border border-slate-200 text-slate-700 hover:border-auraNavy"
@@ -4462,19 +4527,14 @@ function navigate(pageId) {
                   }).join("")}
                 </div>
               </div>
-
-              <div class="space-y-1 text-xs text-slate-600 mb-3 sm:mb-4 pt-2.5 sm:pt-3 border-t border-slate-100">
-                <div class="flex justify-between"><span>${currentLang === "es" ? "Eslora:" : "Length:"}</span> <strong>${y.length} ${currentLang === "es" ? "Pies" : "Feet"}</strong></div>
-                <div class="flex justify-between"><span>${currentLang === "es" ? "Capacidad:" : "Capacity:"}</span> <strong>${currentLang === "es" ? "Hasta" : "Up to"} ${y.pax} PAX</strong></div>
-              </div>
             </div>
 
-            <div class="pt-3 border-t border-slate-100">
-              <div class="flex flex-wrap items-baseline justify-between gap-1 mb-3 sm:mb-4">
+            <div class="pt-2.5 border-t border-slate-100">
+              <div class="flex flex-wrap items-baseline justify-between gap-1 mb-2.5">
                 <span class="text-xs text-slate-400 font-medium">${currentDur} ${currentLang === "es" ? "Horas" : "Hours"}</span>
                 <span class="font-serif text-xl sm:text-2xl font-bold text-auraNavy">${getDisplayPrice(currentRate, 18.0, true)}</span>
               </div>
-              <button onclick="addToCart('${y.id}', 'Yate', null, null, ${currentDur})" class="w-full py-3 sm:py-3.5 rounded-xl bg-auraNavy text-white hover:bg-auraNavyLight font-bold text-xs uppercase tracking-wider transition-colors shadow-md">
+              <button onclick="addToCart('${y.id}', 'Yate', null, null, ${currentDur})" class="w-full py-2.5 sm:py-3 rounded-xl bg-auraNavy text-white hover:bg-auraNavyLight font-bold text-xs uppercase tracking-wider transition-colors shadow-md btn-interactive">
                 ${currentLang === "es" ? "+ Añadir Yate al Carrito" : "+ Add Yacht to Cart"}
               </button>
             </div>
@@ -4484,7 +4544,7 @@ function navigate(pageId) {
 
       if (track) {
         track.innerHTML = YACHTS_FLEET.map(y => `
-          <div class="min-w-full sm:min-w-[50%] lg:min-w-[33.333%] p-2 sm:p-3 flex-shrink-0">
+          <div class="min-w-[86%] sm:min-w-[50%] lg:min-w-[33.333%] p-2 sm:p-3 flex-shrink-0">
             ${generateCardHtml(y)}
           </div>
         `).join("");
@@ -5724,6 +5784,36 @@ function navigate(pageId) {
     }
 
     // Inicializador seguro del DOM
+    // Reproducción Automática de Video de Fondo (100% Adaptativo a Móviles)
+    function playHeroVideo() {
+      const v = document.getElementById("heroVideoBg");
+      if (!v) return;
+      v.muted = true;
+      v.defaultMuted = true;
+      v.playsInline = true;
+      const playPromise = v.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Si el navegador móvil (iOS / Android) restringió el autoplay, activar al primer toque
+          const unlockAutoplay = () => {
+            v.muted = true;
+            v.play().catch(() => {});
+            ["touchstart", "touchend", "click", "scroll"].forEach(ev => {
+              window.removeEventListener(ev, unlockAutoplay);
+            });
+          };
+          ["touchstart", "touchend", "click", "scroll"].forEach(ev => {
+            window.addEventListener(ev, unlockAutoplay, { passive: true, once: true });
+          });
+        });
+      }
+    }
+
+    window.addEventListener("load", playHeroVideo);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) playHeroVideo();
+    });
+
     window.addEventListener("DOMContentLoaded", () => {
       try {
         const today = new Date().toISOString().split("T")[0];
@@ -5758,11 +5848,8 @@ function navigate(pageId) {
         startYachtAutoSlide();
         initYachtCarouselTouch();
 
-        // Iniciar video de fondo
-        const heroVideo = document.getElementById("heroVideoBg");
-        if (heroVideo) {
-          heroVideo.play().catch(() => {});
-        }
+        // Iniciar video de fondo con desbloqueo para móviles
+        playHeroVideo();
 
         // Sincronizar en tiempo real con Google Sheet TSV
         syncDataFromGoogleSheet();
