@@ -583,7 +583,7 @@
           <!-- Card 2: Restaurante -->
           <article class="bg-white rounded-2xl overflow-hidden shadow-aura-card border border-slate-200 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
             <div class="h-48 w-full overflow-hidden bg-slate-100">
-              <img src="https://drive.google.com/thumbnail?id=1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw=w1200" alt="Cancun Lighthouse Restaurant" data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw" referrerpolicy="no-referrer" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="handleImgError(this)" data-fallback="https://cancunlighthousemarina.com/wp-content/uploads/2026/06/Day-Dockage-Designed-1024x576.webp" loading="lazy">
+              <img src="https://drive.google.com/thumbnail?id=1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw&sz=w1200" alt="Cancun Lighthouse Restaurant" data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw" referrerpolicy="no-referrer" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="handleImgError(this)" data-fallback="https://cancunlighthousemarina.com/wp-content/uploads/2026/06/Day-Dockage-Designed-1024x576.webp" loading="lazy">
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
@@ -978,7 +978,7 @@
 
           <div class="relative">
             <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-video lg:aspect-4/3 relative">
-              <img src="https://drive.google.com/thumbnail?id=1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw=w1200" alt="Cancun Lighthouse Restaurant" data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw" referrerpolicy="no-referrer" class="w-full h-full object-cover" onerror="handleImgError(this)" data-fallback="https://cancunlighthousemarina.com/wp-content/uploads/2026/06/Day-Dockage-Designed-1024x576.webp" loading="lazy">
+              <img src="https://drive.google.com/thumbnail?id=1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw&sz=w1200" alt="Cancun Lighthouse Restaurant" data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw" referrerpolicy="no-referrer" class="w-full h-full object-cover" onerror="handleImgError(this)" data-fallback="https://cancunlighthousemarina.com/wp-content/uploads/2026/06/Day-Dockage-Designed-1024x576.webp" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-auraNavy/80 via-transparent to-transparent"></div>
               <div class="absolute bottom-6 left-6 right-6">
                 <p class="text-white font-serif text-lg font-medium" data-i18n="rest.imgCaption">El mejor punto de encuentro frente a la laguna en Plaza La Isla 1</p>
@@ -1500,7 +1500,7 @@
         <div class="lg:col-span-6">
           <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 aspect-4/3 relative group cursor-pointer" onclick="openGalleryLightbox(this.querySelector('img').src)">
             <img 
-              src="https://drive.google.com/thumbnail?id=1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw=w1200" 
+              src="https://drive.google.com/thumbnail?id=1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw&sz=w1200" 
               alt="Cancun Lighthouse Marina Plaza La Isla 1" 
               data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw"
               referrerpolicy="no-referrer"
@@ -2151,10 +2151,10 @@
       const attempt = parseInt(imgEl.getAttribute("data-retry-attempt") || "0", 10);
       if (driveId && attempt === 0) {
         imgEl.setAttribute("data-retry-attempt", "1");
-        if (currentSrc.includes("googleusercontent.com")) {
-          imgEl.src = "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800";
+        if (currentSrc.includes("drive.google.com/thumbnail")) {
+          imgEl.src = "https://lh3.googleusercontent.com/d/" + driveId + "=w800";
         } else {
-          imgEl.src = "https://drive.google.com/thumbnail?id=" + driveId + "=w800";
+          imgEl.src = "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800";
         }
         return;
       }
