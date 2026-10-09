@@ -583,7 +583,7 @@
           <!-- Card 2: Restaurante -->
           <article class="bg-white rounded-2xl overflow-hidden shadow-aura-card border border-slate-200 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
             <div class="h-48 w-full overflow-hidden bg-slate-100">
-              <img src="https://lh3.googleusercontent.com/d/1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw=w1200" alt="Cancun Lighthouse Restaurant" data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw" referrerpolicy="no-referrer" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="handleImgError(this)" data-fallback="https://cancunlighthousemarina.com/wp-content/uploads/2026/06/Day-Dockage-Designed-1024x576.webp" loading="lazy">
+              <img src="https://drive.google.com/thumbnail?id=1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw=w1200" alt="Cancun Lighthouse Restaurant" data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw" referrerpolicy="no-referrer" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="handleImgError(this)" data-fallback="https://cancunlighthousemarina.com/wp-content/uploads/2026/06/Day-Dockage-Designed-1024x576.webp" loading="lazy">
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
@@ -978,7 +978,7 @@
 
           <div class="relative">
             <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-video lg:aspect-4/3 relative">
-              <img src="https://lh3.googleusercontent.com/d/1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw=w1200" alt="Cancun Lighthouse Restaurant" data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw" referrerpolicy="no-referrer" class="w-full h-full object-cover" onerror="handleImgError(this)" data-fallback="https://cancunlighthousemarina.com/wp-content/uploads/2026/06/Day-Dockage-Designed-1024x576.webp" loading="lazy">
+              <img src="https://drive.google.com/thumbnail?id=1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw=w1200" alt="Cancun Lighthouse Restaurant" data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw" referrerpolicy="no-referrer" class="w-full h-full object-cover" onerror="handleImgError(this)" data-fallback="https://cancunlighthousemarina.com/wp-content/uploads/2026/06/Day-Dockage-Designed-1024x576.webp" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-auraNavy/80 via-transparent to-transparent"></div>
               <div class="absolute bottom-6 left-6 right-6">
                 <p class="text-white font-serif text-lg font-medium" data-i18n="rest.imgCaption">El mejor punto de encuentro frente a la laguna en Plaza La Isla 1</p>
@@ -1328,7 +1328,7 @@
 
       <div class="lg:col-span-5 bg-white p-5 sm:p-6 rounded-2xl shadow-aura-card border border-auraBorder">
         <div class="h-40 sm:h-48 w-full rounded-xl overflow-hidden mb-3 sm:mb-4 bg-slate-100">
-          <img src="https://lh3.googleusercontent.com/d/1efe7aZIqc-2h7xENe9BWLQpUTZVWRS_m=w800" alt="Suburban VIP" class="w-full h-full object-cover" onerror="handleImgError(this)" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <img src="https://drive.google.com/thumbnail?id=1efe7aZIqc-2h7xENe9BWLQpUTZVWRS_m&sz=w800" alt="Suburban VIP" class="w-full h-full object-cover" onerror="handleImgError(this)" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         </div>
         <h3 class="font-serif text-base sm:text-lg font-bold text-slate-900 mb-1" data-i18n="transPage.fleetTitle">Unidades Suburban & Escalade</h3>
         <p class="text-xs text-slate-500 leading-relaxed" data-i18n="transPage.fleetDesc">
@@ -1500,7 +1500,7 @@
         <div class="lg:col-span-6">
           <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 aspect-4/3 relative group cursor-pointer" onclick="openGalleryLightbox(this.querySelector('img').src)">
             <img 
-              src="https://lh3.googleusercontent.com/d/1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw=w1200" 
+              src="https://drive.google.com/thumbnail?id=1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw=w1200" 
               alt="Cancun Lighthouse Marina Plaza La Isla 1" 
               data-drive-id="1WuX4FZGqRRfC4oUxh_eLumZn77ex7OSw"
               referrerpolicy="no-referrer"
@@ -1879,7 +1879,9 @@
     
 
     function acceptCookies(type) {
-      localStorage.setItem("clm_cookie_consent", type);
+      try {
+        localStorage.setItem("clm_cookie_consent", type);
+      } catch (e) {}
       closeCookieBanner();
       MarinaAnalytics.event("Privacy", "Cookie_Consent", type);
     }
@@ -2022,10 +2024,68 @@
       }, 4000);
     }
 
-    // Helper de imágenes robusto con Google Drive ID
+    // Patrón Oficial de Imágenes de Actividades y Yates (Google Drive Verificado)
+    const ACTIVITY_DRIVE_PATTERNS = {
+      "cat-01": "1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL",
+      "jungle-01": "1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U",
+      "jungle-combo-01": "1Ys49cVjYkwXpSntgS0_h-sbY0Eubm3FD",
+      "jungle-combo-02": "1oQaLdSTtD5PzZB8VTFLSOMfNVm9Hz4AX",
+      "buceo-01": "18vcW-0F2DFtslzZ1UmFrta48pKcZAZMk",
+      "clear-boat-01": "1yFTztl2xxl9miauwKa0CozTslNk8koeh",
+      "atv-single-01": "1msbLqhimAWh6Sym9qCaHWu5LV8DXPhPp",
+      "atv-share-01": "1LA96DG4cNF-Neg1fH-yG_f8ir2iE-57c",
+      "hook-carne-01": "1qwuN11uKorYSoUpu0DYDqDvuuMoD0r3b",
+      "hook-pollo-01": "1wqpsAQrtGpFcAisnpSFhqMJBcrpGk8z5",
+      "xcaret-plus": "1nNnhwvswFQN-DaMOOdOxfptrwGkEqFyW",
+      "xel-ha": "1GnXW4hpClM76KUhGIMa2H9dvnwNy89t7",
+      "xplor-dia": "1zsoK_cWnZyyCugjbmNQKfbIAnY-ffBzF",
+      "xplor-fuego": "11MZKROxwAKzKtz7pWaCEudrYEODUJJvv",
+      "xoximilco": "1h-AvkTNT3yz8P56tieTegJg9VdE0Woix",
+      "xenotes": "1g_PTz0tRM-_C1J0djf5J-DB9IsAaWTpE",
+      "xenses": "1UknWCdq8cTnHNIQOZP5k8raKX_zHqaMh",
+      "chichen-clasico": "1hkCpDL11Qtpvm3ok21cdB0mYlDqDwNcP",
+      "chichen-vip": "1W7pphAZUo2cWlhAe9ci70pqbqS1TRUyY",
+      "chichen-5x1-clasico": "1xJ0qMPLtjpLOhVnUn-OgG2i7naHWkd7k",
+      "chichen-5x1-diamante": "1nnjzCMPHujuSu7aQ-pCvcbIXLTLF8biR",
+      "chichen-hubiku": "1pbZFMME_yc39v91Aft8MQYiRrtUKW--h",
+      "chichen-suyrun": "1RDXdrwD1GiJYo0GSa8FSuosgwftk9q8H",
+      "ek-balam-hubiku": "1MHhcwtQRTghyF4FRaxUUiMw_eQfRgRzi",
+      "noches-kukulcan": "1ikLWA3AKajBIrfkEPDOTl93zFRpVWlBY",
+      "coz-cielo-lancha": "1VLue1Fe15AGGI-UwPoVrfbp9M7cWNerU",
+      "coz-cielo-transp": "1JUUDs2VTyv6UAJ181DWq0DFwCD7b6y0R",
+      "coz-buggy": "1ZFcHyKpmzreOPFE6pkbafqyrdQGLcP-9",
+      "coz-submarino": "1sOQQnaGvMz_K5_Xcxqt35e5LvxMbkdFn",
+      "coz-combo-cielo-clear": "1DSB8YsByBt8WfVQewvkZp1QmLtYBkNPu",
+      "coz-economico": "1nOzZNzlDbgxfwa79l9vHE0tDYOwgWhhg",
+      "tulum-jaguar": "1HQjgYRVErU5h4VJpAXlQCHKZNOKJHlnc",
+      "contoy-01": "1jvtTKCkFSjQYSwxXv1-3Ov4dlHBAMtb_",
+      "holbox-plus": "10Ax15rLCjDeTZKFaKulajGrk_9Jz-pD9",
+      "holbox-golf": "1IW1-kP-dtTT0SNE8Nry_TVIyw7tYk6aq",
+      "holbox-econ": "10zVK0IwsxBLzxs6ZLwWyvIjctCIB7K8I",
+      "coloradas-rio": "1ZlQJg1pBduonzb8_C7b-igU_-rcy6pIo",
+      "bacalar-plus": "1z53ec2yFkB_bHE5FO0J3Y1_qt4YBb7nR",
+      "bacalar-club": "19qPZu_0TI3WOrjDc0gZqSVx-jT8pHM01",
+      "bacalar-rapidos": "1rgNybk7gHKGJQumw8T6K6TU8rzQJz_K5",
+      "bacalar-econ": "1VRKd9dvk8ZCPv1930ZVOAaVBcDyZo_vi",
+      "tortuga-naturaleza": "1B2oS7GRbq_4eZzmz1F_hdI0KKiZqb2Fs",
+      "tortuga-econ": "1CZD6Y2DGVJDkIWtYz9Iv150_FFsansaB",
+      "tortuga-silver": "1ZHm9qyxqukoIOa-cwA-Ss544Vq0GDaKz",
+      "tulum-akumal": "1tnzW6Cz-6AD9TGwuYYzYBMM66ddE9sBl",
+      "tulum-dos-ojos": "1hr224aILTHbheOVGfcvc24993UR9qBze",
+      "sian-kaan": "10ASG2tRWJCdM9-nM0NX89KQqo9TzRxox",
+      "cenotes-yucatan": "1oCx3QH0_5YfDH-mO2lnjDeOc70E8VR6F",
+      "aventura-cenote": "13PhH2VtHhK5MtUMsf3TtNPqQGLC1UJyu",
+      "yacht-lorenzo": "1pW1wL-NqEWz1s47svFbgkvZSDSa4W0Mg",
+      "yacht-sofia": "131Ey274dJML9Tmuht9NDkvSSYIstbMuA",
+      "yacht-mercedes": "1WrfQK0hwLKctnksHtT7CsvmpDxTlgA-X",
+      "yacht-white-rum": "1_nXZSBBxR8qSBHcMm7XcsRIdRLD9IY79",
+      "yacht-regina": "1pW1wL-NqEWz1s47svFbgkvZSDSa4W0Mg"
+    };
+
     function extractDriveId(urlOrId) {
       if (!urlOrId) return "";
       if (typeof urlOrId !== "string") return "";
+      if (ACTIVITY_DRIVE_PATTERNS[urlOrId]) return ACTIVITY_DRIVE_PATTERNS[urlOrId];
       const matchThumb = urlOrId.match(/[?&]id=([a-zA-Z0-9_-]+)/);
       if (matchThumb) return matchThumb[1];
       const match = urlOrId.match(/\/d\/([a-zA-Z0-9_-]+)/);
@@ -2038,7 +2098,7 @@
     function getDriveImageUrl(driveUrlOrId) {
       if (!driveUrlOrId) return "https://cancunlighthousemarina.com/wp-content/uploads/2026/07/Hero-Marina.webp";
       const id = extractDriveId(driveUrlOrId);
-      return "https://lh3.googleusercontent.com/d/" + id + "=w800";
+      return "https://drive.google.com/thumbnail?id=" + id + "&sz=w800";
     }
 
     const YACHT_FALLBACKS = {
@@ -2094,13 +2154,13 @@
         if (currentSrc.includes("googleusercontent.com")) {
           imgEl.src = "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800";
         } else {
-          imgEl.src = "https://lh3.googleusercontent.com/d/" + driveId + "=w800";
+          imgEl.src = "https://drive.google.com/thumbnail?id=" + driveId + "=w800";
         }
         return;
       }
       if (driveId && attempt === 1) {
         imgEl.setAttribute("data-retry-attempt", "2");
-        imgEl.src = "https://lh3.googleusercontent.com/d/" + driveId;
+        imgEl.src = "https://drive.google.com/thumbnail?id=" + driveId;
         return;
       }
       if (driveId && attempt === 2) {
@@ -2135,7 +2195,7 @@
       "8": 21000
     },
     "selectedDuration": 4,
-    "img": "https://lh3.googleusercontent.com/d/1pW1wL-NqEWz1s47svFbgkvZSDSa4W0Mg=w800"
+    "img": "https://drive.google.com/thumbnail?id=1pW1wL-NqEWz1s47svFbgkvZSDSa4W0Mg&sz=w800"
   },
   {
     "id": "yacht-sofia",
@@ -2154,7 +2214,7 @@
       "8": 21000
     },
     "selectedDuration": 4,
-    "img": "https://lh3.googleusercontent.com/d/131Ey274dJML9Tmuht9NDkvSSYIstbMuA=w800"
+    "img": "https://drive.google.com/thumbnail?id=131Ey274dJML9Tmuht9NDkvSSYIstbMuA&sz=w800"
   },
   {
     "id": "yacht-mercedes",
@@ -2173,7 +2233,7 @@
       "8": 25000
     },
     "selectedDuration": 4,
-    "img": "https://lh3.googleusercontent.com/d/1WrfQK0hwLKctnksHtT7CsvmpDxTlgA-X=w800"
+    "img": "https://drive.google.com/thumbnail?id=1WrfQK0hwLKctnksHtT7CsvmpDxTlgA-X&sz=w800"
   },
   {
     "id": "yacht-white-rum",
@@ -2192,7 +2252,7 @@
       "8": 19000
     },
     "selectedDuration": 6,
-    "img": "https://lh3.googleusercontent.com/d/1_nXZSBBxR8qSBHcMm7XcsRIdRLD9IY79=w800"
+    "img": "https://drive.google.com/thumbnail?id=1_nXZSBBxR8qSBHcMm7XcsRIdRLD9IY79&sz=w800"
   },
   {
     "id": "yacht-regina",
@@ -2211,7 +2271,7 @@
       "8": 19000
     },
     "selectedDuration": 4,
-    "img": "https://lh3.googleusercontent.com/d/1pW1wL-NqEWz1s47svFbgkvZSDSa4W0Mg=w800"
+    "img": "https://drive.google.com/thumbnail?id=1pW1wL-NqEWz1s47svFbgkvZSDSa4W0Mg&sz=w800"
   }
 ];
 
@@ -2229,7 +2289,7 @@
     "driveId": "1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL",
     "notesEs": "Snorkel en arrecife barra libre y almuerzo buffet",
     "notesEn": "Barrier reef snorkeling, domestic open bar, and beach club buffet lunch.",
-    "img": "https://lh3.googleusercontent.com/d/1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL=w800"
+    "img": "https://drive.google.com/thumbnail?id=1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL&sz=w800"
   },
   {
     "id": "jungle-01",
@@ -2244,7 +2304,7 @@
     "driveId": "1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U",
     "notesEs": "Lancha rápida biplaza laguna Nichupté y snorkel Nizuc",
     "notesEn": "Two-seater speedboat across Nichupté Lagoon and Punta Nizuc reef snorkeling.",
-    "img": "https://lh3.googleusercontent.com/d/1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U=w800"
+    "img": "https://drive.google.com/thumbnail?id=1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U&sz=w800"
   },
   {
     "id": "jungle-combo-01",
@@ -2259,7 +2319,7 @@
     "driveId": "1Ys49cVjYkwXpSntgS0_h-sbY0Eubm3FD",
     "notesEs": "Jungle Tour + 30 min moto acuática",
     "notesEn": "Jungle Tour speedboat plus 30 minutes of wave runner jet ski thrills.",
-    "img": "https://lh3.googleusercontent.com/d/1Ys49cVjYkwXpSntgS0_h-sbY0Eubm3FD=w800"
+    "img": "https://drive.google.com/thumbnail?id=1Ys49cVjYkwXpSntgS0_h-sbY0Eubm3FD&sz=w800"
   },
   {
     "id": "jungle-combo-02",
@@ -2274,7 +2334,7 @@
     "driveId": "1oQaLdSTtD5PzZB8VTFLSOMfNVm9Hz4AX",
     "notesEs": "Flyboard 20 min + lancha en manglares",
     "notesEn": "20-minute hydroflight Flyboard experience plus speedboat mangrove safari.",
-    "img": "https://lh3.googleusercontent.com/d/1oQaLdSTtD5PzZB8VTFLSOMfNVm9Hz4AX=w800"
+    "img": "https://drive.google.com/thumbnail?id=1oQaLdSTtD5PzZB8VTFLSOMfNVm9Hz4AX&sz=w800"
   },
   {
     "id": "buceo-01",
@@ -2289,7 +2349,7 @@
     "driveId": "18vcW-0F2DFtslzZ1UmFrta48pKcZAZMk",
     "notesEs": "Arrecifes vírgenes y museo subacuático MUSA",
     "notesEn": "Pristine coral reefs and MUSA Underwater Museum of Art diving excursion.",
-    "img": "https://lh3.googleusercontent.com/d/18vcW-0F2DFtslzZ1UmFrta48pKcZAZMk=w800"
+    "img": "https://drive.google.com/thumbnail?id=18vcW-0F2DFtslzZ1UmFrta48pKcZAZMk&sz=w800"
   },
   {
     "id": "clear-boat-01",
@@ -2304,7 +2364,7 @@
     "driveId": "1yFTztl2xxl9miauwKa0CozTslNk8koeh",
     "notesEs": "Barco 100% transparente para ver fondo marino",
     "notesEn": "100% transparent glass boat tour to admire sea life and coral reefs.",
-    "img": "https://lh3.googleusercontent.com/d/1yFTztl2xxl9miauwKa0CozTslNk8koeh=w800"
+    "img": "https://drive.google.com/thumbnail?id=1yFTztl2xxl9miauwKa0CozTslNk8koeh&sz=w800"
   },
   {
     "id": "atv-single-01",
@@ -2319,7 +2379,7 @@
     "driveId": "1msbLqhimAWh6Sym9qCaHWu5LV8DXPhPp",
     "notesEs": "Cuatrimoto individual 4x4 tirolesas y cenote",
     "notesEn": "Single 4x4 ATV jungle trail, extreme zipline circuit, and sacred cenote.",
-    "img": "https://lh3.googleusercontent.com/d/1msbLqhimAWh6Sym9qCaHWu5LV8DXPhPp=w800"
+    "img": "https://drive.google.com/thumbnail?id=1msbLqhimAWh6Sym9qCaHWu5LV8DXPhPp&sz=w800"
   },
   {
     "id": "atv-share-01",
@@ -2334,7 +2394,7 @@
     "driveId": "1LA96DG4cNF-Neg1fH-yG_f8ir2iE-57c",
     "notesEs": "Cuatrimoto doble compartida por persona",
     "notesEn": "Shared double 4x4 ATV jungle expedition, ziplines, and sacred cenote swim.",
-    "img": "https://lh3.googleusercontent.com/d/1LA96DG4cNF-Neg1fH-yG_f8ir2iE-57c=w800"
+    "img": "https://drive.google.com/thumbnail?id=1LA96DG4cNF-Neg1fH-yG_f8ir2iE-57c&sz=w800"
   },
   {
     "id": "hook-carne-01",
@@ -2349,7 +2409,7 @@
     "driveId": "1qwuN11uKorYSoUpu0DYDqDvuuMoD0r3b",
     "notesEs": "Galeón pirata nocturno cena corte New York",
     "notesEn": "Pirate galleon night cruise with grilled New York steak dinner and live battle show.",
-    "img": "https://lh3.googleusercontent.com/d/1qwuN11uKorYSoUpu0DYDqDvuuMoD0r3b=w800"
+    "img": "https://drive.google.com/thumbnail?id=1qwuN11uKorYSoUpu0DYDqDvuuMoD0r3b&sz=w800"
   },
   {
     "id": "hook-pollo-01",
@@ -2364,7 +2424,7 @@
     "driveId": "1wqpsAQrtGpFcAisnpSFhqMJBcrpGk8z5",
     "notesEs": "Galeón pirata nocturno cena pechuga de pollo",
     "notesEn": "Pirate galleon night cruise with grilled chicken breast dinner and live battle show.",
-    "img": "https://lh3.googleusercontent.com/d/1wqpsAQrtGpFcAisnpSFhqMJBcrpGk8z5=w800"
+    "img": "https://drive.google.com/thumbnail?id=1wqpsAQrtGpFcAisnpSFhqMJBcrpGk8z5&sz=w800"
   },
   {
     "id": "xcaret-plus",
@@ -2379,7 +2439,7 @@
     "driveId": "1nNnhwvswFQN-DaMOOdOxfptrwGkEqFyW",
     "notesEs": "Ríos subterráneos show nocturno y comida buffet",
     "notesEn": "Underground rivers, world-class México Espectacular night show, and buffet lunch.",
-    "img": "https://lh3.googleusercontent.com/d/1nNnhwvswFQN-DaMOOdOxfptrwGkEqFyW=w800"
+    "img": "https://drive.google.com/thumbnail?id=1nNnhwvswFQN-DaMOOdOxfptrwGkEqFyW&sz=w800"
   },
   {
     "id": "xel-ha",
@@ -2394,7 +2454,7 @@
     "driveId": "1GnXW4hpClM76KUhGIMa2H9dvnwNy89t7",
     "notesEs": "Caleta todo incluido snorkel y faro tobogán",
     "notesEn": "All-inclusive natural inlet, unlimited snorkeling, food, and scenic lighthouse slide.",
-    "img": "https://lh3.googleusercontent.com/d/1GnXW4hpClM76KUhGIMa2H9dvnwNy89t7=w800"
+    "img": "https://drive.google.com/thumbnail?id=1GnXW4hpClM76KUhGIMa2H9dvnwNy89t7&sz=w800"
   },
   {
     "id": "xplor-dia",
@@ -2409,7 +2469,7 @@
     "driveId": "1zsoK_cWnZyyCugjbmNQKfbIAnY-ffBzF",
     "notesEs": "Tirolesas vehículos anfibios y cavernas",
     "notesEn": "High-flying ziplines, amphibious jungle vehicles, underground caves, and buffet.",
-    "img": "https://lh3.googleusercontent.com/d/1zsoK_cWnZyyCugjbmNQKfbIAnY-ffBzF=w800"
+    "img": "https://drive.google.com/thumbnail?id=1zsoK_cWnZyyCugjbmNQKfbIAnY-ffBzF&sz=w800"
   },
   {
     "id": "xplor-fuego",
@@ -2424,7 +2484,7 @@
     "driveId": "11MZKROxwAKzKtz7pWaCEudrYEODUJJvv",
     "notesEs": "Aventura nocturna con antorchas y buffet BBQ",
     "notesEn": "Torch-lit night adventure, illuminated ziplines, lava rivers, and BBQ buffet.",
-    "img": "https://lh3.googleusercontent.com/d/11MZKROxwAKzKtz7pWaCEudrYEODUJJvv=w800"
+    "img": "https://drive.google.com/thumbnail?id=11MZKROxwAKzKtz7pWaCEudrYEODUJJvv&sz=w800"
   },
   {
     "id": "xoximilco",
@@ -2439,7 +2499,7 @@
     "driveId": "1h-AvkTNT3yz8P56tieTegJg9VdE0Woix",
     "notesEs": "Trajineras mariachi cena mexicana y barra libre",
     "notesEn": "Traditional Mexican gondolas, live mariachi, fiesta dinner, and open bar.",
-    "img": "https://lh3.googleusercontent.com/d/1h-AvkTNT3yz8P56tieTegJg9VdE0Woix=w800"
+    "img": "https://drive.google.com/thumbnail?id=1h-AvkTNT3yz8P56tieTegJg9VdE0Woix&sz=w800"
   },
   {
     "id": "xenotes",
@@ -2454,7 +2514,7 @@
     "driveId": "1g_PTz0tRM-_C1J0djf5J-DB9IsAaWTpE",
     "notesEs": "Ruta exclusiva por 4 tipos de cenotes con rappel",
     "notesEn": "Exclusive expedition through 4 sacred cenote types with assisted rappel and kayak.",
-    "img": "https://lh3.googleusercontent.com/d/1g_PTz0tRM-_C1J0djf5J-DB9IsAaWTpE=w800"
+    "img": "https://drive.google.com/thumbnail?id=1g_PTz0tRM-_C1J0djf5J-DB9IsAaWTpE&sz=w800"
   },
   {
     "id": "xenses",
@@ -2469,7 +2529,7 @@
     "driveId": "1UknWCdq8cTnHNIQOZP5k8raKX_zHqaMh",
     "notesEs": "Parque sensorial ilusiones ópticas y vuelo tirolesa",
     "notesEn": "Sensory theme park featuring optical illusions, mud river, and bird flight zipline.",
-    "img": "https://lh3.googleusercontent.com/d/1UknWCdq8cTnHNIQOZP5k8raKX_zHqaMh=w800"
+    "img": "https://drive.google.com/thumbnail?id=1UknWCdq8cTnHNIQOZP5k8raKX_zHqaMh&sz=w800"
   },
   {
     "id": "chichen-clasico",
@@ -2484,7 +2544,7 @@
     "driveId": "1hkCpDL11Qtpvm3ok21cdB0mYlDqDwNcP",
     "notesEs": "Transporte entrada ruinas cenote y comida yucateca",
     "notesEn": "Round-trip transportation, archaeological ruins entry, sacred cenote, and Yucatecan buffet.",
-    "img": "https://lh3.googleusercontent.com/d/1hkCpDL11Qtpvm3ok21cdB0mYlDqDwNcP=w800"
+    "img": "https://drive.google.com/thumbnail?id=1hkCpDL11Qtpvm3ok21cdB0mYlDqDwNcP&sz=w800"
   },
   {
     "id": "chichen-vip",
@@ -2499,7 +2559,7 @@
     "driveId": "1W7pphAZUo2cWlhAe9ci70pqbqS1TRUyY",
     "notesEs": "Autobús de lujo desayuno ligero bebidas y Valladolid",
     "notesEn": "Luxury coach with continental breakfast, open bar, ruins entry, cenote, and Valladolid.",
-    "img": "https://lh3.googleusercontent.com/d/1W7pphAZUo2cWlhAe9ci70pqbqS1TRUyY=w800"
+    "img": "https://drive.google.com/thumbnail?id=1W7pphAZUo2cWlhAe9ci70pqbqS1TRUyY&sz=w800"
   },
   {
     "id": "chichen-5x1-clasico",
@@ -2514,7 +2574,7 @@
     "driveId": "1xJ0qMPLtjpLOhVnUn-OgG2i7naHWkd7k",
     "notesEs": "Chichén Itzá + Tulum + Cobá + Cenote + Valladolid",
     "notesEn": "Complete tour: Chichén Itzá + Tulum + Cobá + Sacred Cenote + Colonial Valladolid.",
-    "img": "https://lh3.googleusercontent.com/d/1xJ0qMPLtjpLOhVnUn-OgG2i7naHWkd7k=w800"
+    "img": "https://drive.google.com/thumbnail?id=1xJ0qMPLtjpLOhVnUn-OgG2i7naHWkd7k&sz=w800"
   },
   {
     "id": "chichen-5x1-diamante",
@@ -2529,7 +2589,7 @@
     "driveId": "1nnjzCMPHujuSu7aQ-pCvcbIXLTLF8biR",
     "notesEs": "Versión ejecutiva 5 en 1 con transporte premier",
     "notesEn": "Executive 5-in-1 Maya circuit with premier transportation and VIP inclusions.",
-    "img": "https://lh3.googleusercontent.com/d/1nnjzCMPHujuSu7aQ-pCvcbIXLTLF8biR=w800"
+    "img": "https://drive.google.com/thumbnail?id=1nnjzCMPHujuSu7aQ-pCvcbIXLTLF8biR&sz=w800"
   },
   {
     "id": "chichen-hubiku",
@@ -2544,7 +2604,7 @@
     "driveId": "1pbZFMME_yc39v91Aft8MQYiRrtUKW--h",
     "notesEs": "Ruinas mayas + nado en caverna subterránea Hubiku",
     "notesEn": "Maya pyramids entry plus refreshing swim in underground Hubiku cenote cave.",
-    "img": "https://lh3.googleusercontent.com/d/1pbZFMME_yc39v91Aft8MQYiRrtUKW--h=w800"
+    "img": "https://drive.google.com/thumbnail?id=1pbZFMME_yc39v91Aft8MQYiRrtUKW--h&sz=w800"
   },
   {
     "id": "chichen-suyrun",
@@ -2559,7 +2619,7 @@
     "driveId": "1RDXdrwD1GiJYo0GSa8FSuosgwftk9q8H",
     "notesEs": "Ruinas + cenote con haz de luz Suytún",
     "notesEn": "Ruins exploration plus magical sunbeam photo opportunity at Suytún cenote cave.",
-    "img": "https://lh3.googleusercontent.com/d/1RDXdrwD1GiJYo0GSa8FSuosgwftk9q8H=w800"
+    "img": "https://drive.google.com/thumbnail?id=1RDXdrwD1GiJYo0GSa8FSuosgwftk9q8H&sz=w800"
   },
   {
     "id": "ek-balam-hubiku",
@@ -2574,7 +2634,7 @@
     "driveId": "1MHhcwtQRTghyF4FRaxUUiMw_eQfRgRzi",
     "notesEs": "Acrópolis con estucos + cenote Hubiku",
     "notesEn": "Royal Acropolis stuccoes at Ek Balam plus underground Hubiku cenote cave.",
-    "img": "https://lh3.googleusercontent.com/d/1MHhcwtQRTghyF4FRaxUUiMw_eQfRgRzi=w800"
+    "img": "https://drive.google.com/thumbnail?id=1MHhcwtQRTghyF4FRaxUUiMw_eQfRgRzi&sz=w800"
   },
   {
     "id": "noches-kukulcan",
@@ -2589,7 +2649,7 @@
     "driveId": "1ikLWA3AKajBIrfkEPDOTl93zFRpVWlBY",
     "notesEs": "Espectáculo nocturno de luz y sonido en El Castillo",
     "notesEn": "Night illumination and projection videomapping show on El Castillo pyramid.",
-    "img": "https://lh3.googleusercontent.com/d/1ikLWA3AKajBIrfkEPDOTl93zFRpVWlBY=w800"
+    "img": "https://drive.google.com/thumbnail?id=1ikLWA3AKajBIrfkEPDOTl93zFRpVWlBY&sz=w800"
   },
   {
     "id": "coz-cielo-lancha",
@@ -2604,7 +2664,7 @@
     "driveId": "1VLue1Fe15AGGI-UwPoVrfbp9M7cWNerU",
     "notesEs": "Estrellas de mar El Cielo y arrecifes Palancar/Colombia",
     "notesEn": "El Cielo starfish sanctuary and Palancar & Colombia barrier reefs snorkeling.",
-    "img": "https://lh3.googleusercontent.com/d/1VLue1Fe15AGGI-UwPoVrfbp9M7cWNerU=w800"
+    "img": "https://drive.google.com/thumbnail?id=1VLue1Fe15AGGI-UwPoVrfbp9M7cWNerU&sz=w800"
   },
   {
     "id": "coz-cielo-transp",
@@ -2619,7 +2679,7 @@
     "driveId": "1JUUDs2VTyv6UAJ181DWq0DFwCD7b6y0R",
     "notesEs": "Embarcación transparente hacia banco de estrellas",
     "notesEn": "Completely transparent boat cruise to El Cielo starfish sanctuary.",
-    "img": "https://lh3.googleusercontent.com/d/1JUUDs2VTyv6UAJ181DWq0DFwCD7b6y0R=w800"
+    "img": "https://drive.google.com/thumbnail?id=1JUUDs2VTyv6UAJ181DWq0DFwCD7b6y0R&sz=w800"
   },
   {
     "id": "coz-buggy",
@@ -2634,7 +2694,7 @@
     "driveId": "1ZFcHyKpmzreOPFE6pkbafqyrdQGLcP-9",
     "notesEs": "Buggy convertible costa virgen y faro Celarain",
     "notesEn": "Convertible buggy drive along wild Caribbean coastline and Celarain Lighthouse.",
-    "img": "https://lh3.googleusercontent.com/d/1ZFcHyKpmzreOPFE6pkbafqyrdQGLcP-9=w800"
+    "img": "https://drive.google.com/thumbnail?id=1ZFcHyKpmzreOPFE6pkbafqyrdQGLcP-9&sz=w800"
   },
   {
     "id": "coz-submarino",
@@ -2649,7 +2709,7 @@
     "driveId": "1sOQQnaGvMz_K5_Xcxqt35e5LvxMbkdFn",
     "notesEs": "Submarino turístico descenso 30 metros arrecife",
     "notesEn": "Real tourist submarine dive down to 100 feet (30m) along Chankanaab reef.",
-    "img": "https://lh3.googleusercontent.com/d/1sOQQnaGvMz_K5_Xcxqt35e5LvxMbkdFn=w800"
+    "img": "https://drive.google.com/thumbnail?id=1sOQQnaGvMz_K5_Xcxqt35e5LvxMbkdFn&sz=w800"
   },
   {
     "id": "coz-combo-cielo-clear",
@@ -2664,7 +2724,7 @@
     "driveId": "1DSB8YsByBt8WfVQewvkZp1QmLtYBkNPu",
     "notesEs": "Precio pendiente - consultar directamente",
     "notesEn": "Special combo: El Cielo snorkeling and transparent boat. Inquire for pricing.",
-    "img": "https://lh3.googleusercontent.com/d/1DSB8YsByBt8WfVQewvkZp1QmLtYBkNPu=w800"
+    "img": "https://drive.google.com/thumbnail?id=1DSB8YsByBt8WfVQewvkZp1QmLtYBkNPu&sz=w800"
   },
   {
     "id": "coz-economico",
@@ -2679,7 +2739,7 @@
     "driveId": "1nOzZNzlDbgxfwa79l9vHE0tDYOwgWhhg",
     "notesEs": "Ferry redondo recorrido panorámico y club de playa",
     "notesEn": "Round-trip ferry crossing, scenic island tour, and oceanfront beach club.",
-    "img": "https://lh3.googleusercontent.com/d/1nOzZNzlDbgxfwa79l9vHE0tDYOwgWhhg=w800"
+    "img": "https://drive.google.com/thumbnail?id=1nOzZNzlDbgxfwa79l9vHE0tDYOwgWhhg&sz=w800"
   },
   {
     "id": "tulum-jaguar",
@@ -2694,7 +2754,7 @@
     "driveId": "1HQjgYRVErU5h4VJpAXlQCHKZNOKJHlnc",
     "notesEs": "Ruinas acantilado y Parque Nacional Jaguar",
     "notesEn": "Cliffside archaeological zone and newly designated Jaguar National Park.",
-    "img": "https://lh3.googleusercontent.com/d/1HQjgYRVErU5h4VJpAXlQCHKZNOKJHlnc=w800"
+    "img": "https://drive.google.com/thumbnail?id=1HQjgYRVErU5h4VJpAXlQCHKZNOKJHlnc&sz=w800"
   },
   {
     "id": "contoy-01",
@@ -2709,7 +2769,7 @@
     "driveId": "1jvtTKCkFSjQYSwxXv1-3Ov4dlHBAMtb_",
     "notesEs": "Isla protegida santuario de aves y comida en playa",
     "notesEn": "Protected virgin national island, bird sanctuary, and beachside fresh fish lunch.",
-    "img": "https://lh3.googleusercontent.com/d/1jvtTKCkFSjQYSwxXv1-3Ov4dlHBAMtb_=w800"
+    "img": "https://drive.google.com/thumbnail?id=1jvtTKCkFSjQYSwxXv1-3Ov4dlHBAMtb_&sz=w800"
   },
   {
     "id": "holbox-plus",
@@ -2724,7 +2784,7 @@
     "driveId": "10Ax15rLCjDeTZKFaKulajGrk_9Jz-pD9",
     "notesEs": "Lancha Isla Pasión cenote Yalahau y Holbox",
     "notesEn": "Boat tour to Passion Island, freshwater Yalahau cenote spring, and Holbox.",
-    "img": "https://lh3.googleusercontent.com/d/10Ax15rLCjDeTZKFaKulajGrk_9Jz-pD9=w800"
+    "img": "https://drive.google.com/thumbnail?id=10Ax15rLCjDeTZKFaKulajGrk_9Jz-pD9&sz=w800"
   },
   {
     "id": "holbox-golf",
@@ -2739,7 +2799,7 @@
     "driveId": "1IW1-kP-dtTT0SNE8Nry_TVIyw7tYk6aq",
     "notesEs": "Cruce en ferry con carrito de golf incluido",
     "notesEn": "Ferry crossing plus golf cart rental included to explore sandy island streets.",
-    "img": "https://lh3.googleusercontent.com/d/1IW1-kP-dtTT0SNE8Nry_TVIyw7tYk6aq=w800"
+    "img": "https://drive.google.com/thumbnail?id=1IW1-kP-dtTT0SNE8Nry_TVIyw7tYk6aq&sz=w800"
   },
   {
     "id": "holbox-econ",
@@ -2754,7 +2814,7 @@
     "driveId": "10zVK0IwsxBLzxs6ZLwWyvIjctCIB7K8I",
     "notesEs": "Transporte y ferry para explorar libremente",
     "notesEn": "Round-trip bus transfer and ferry crossing for independent island exploration.",
-    "img": "https://lh3.googleusercontent.com/d/10zVK0IwsxBLzxs6ZLwWyvIjctCIB7K8I=w800"
+    "img": "https://drive.google.com/thumbnail?id=10zVK0IwsxBLzxs6ZLwWyvIjctCIB7K8I&sz=w800"
   },
   {
     "id": "coloradas-rio",
@@ -2769,7 +2829,7 @@
     "driveId": "1ZlQJg1pBduonzb8_C7b-igU_-rcy6pIo",
     "notesEs": "Lagunas rosas safari de flamencos y baño maya",
     "notesEn": "Pink salt lakes, flamingo watching river safari, and ancient Mayan clay bath.",
-    "img": "https://lh3.googleusercontent.com/d/1ZlQJg1pBduonzb8_C7b-igU_-rcy6pIo=w800"
+    "img": "https://drive.google.com/thumbnail?id=1ZlQJg1pBduonzb8_C7b-igU_-rcy6pIo&sz=w800"
   },
   {
     "id": "bacalar-plus",
@@ -2784,7 +2844,7 @@
     "driveId": "1z53ec2yFkB_bHE5FO0J3Y1_qt4YBb7nR",
     "notesEs": "Pontón por los 7 colores de la laguna y cenotes",
     "notesEn": "Scenic pontoon cruise across the 7-color lagoon, pirate channel, and cenotes.",
-    "img": "https://lh3.googleusercontent.com/d/1z53ec2yFkB_bHE5FO0J3Y1_qt4YBb7nR=w800"
+    "img": "https://drive.google.com/thumbnail?id=1z53ec2yFkB_bHE5FO0J3Y1_qt4YBb7nR&sz=w800"
   },
   {
     "id": "bacalar-club",
@@ -2799,7 +2859,7 @@
     "driveId": "19qPZu_0TI3WOrjDc0gZqSVx-jT8pHM01",
     "notesEs": "Pase club de laguna con kayaks abiertos y comida",
     "notesEn": "Lagoonfront beach club day pass with open kayaks and lunch included.",
-    "img": "https://lh3.googleusercontent.com/d/19qPZu_0TI3WOrjDc0gZqSVx-jT8pHM01=w800"
+    "img": "https://drive.google.com/thumbnail?id=19qPZu_0TI3WOrjDc0gZqSVx-jT8pHM01&sz=w800"
   },
   {
     "id": "bacalar-rapidos",
@@ -2814,7 +2874,7 @@
     "driveId": "1rgNybk7gHKGJQumw8T6K6TU8rzQJz_K5",
     "notesEs": "Corriente natural suave entre estromatolitos",
     "notesEn": "Gentle natural water current float among ancient living stromatolites.",
-    "img": "https://lh3.googleusercontent.com/d/1rgNybk7gHKGJQumw8T6K6TU8rzQJz_K5=w800"
+    "img": "https://drive.google.com/thumbnail?id=1rgNybk7gHKGJQumw8T6K6TU8rzQJz_K5&sz=w800"
   },
   {
     "id": "bacalar-econ",
@@ -2829,7 +2889,7 @@
     "driveId": "1VRKd9dvk8ZCPv1930ZVOAaVBcDyZo_vi",
     "notesEs": "Transporte entrada Fuerte San Felipe y balneario",
     "notesEn": "Round-trip transfer, Fort San Felipe admission, and public lagoon balneario.",
-    "img": "https://lh3.googleusercontent.com/d/1VRKd9dvk8ZCPv1930ZVOAaVBcDyZo_vi=w800"
+    "img": "https://drive.google.com/thumbnail?id=1VRKd9dvk8ZCPv1930ZVOAaVBcDyZo_vi&sz=w800"
   },
   {
     "id": "tortuga-naturaleza",
@@ -2844,7 +2904,7 @@
     "driveId": "1B2oS7GRbq_4eZzmz1F_hdI0KKiZqb2Fs",
     "notesEs": "4 cenotes y foto escultura Ven a la Luz",
     "notesEn": "4 sacred natural cenotes plus iconic \"Ven a la Luz\" Mother Nature sculpture.",
-    "img": "https://lh3.googleusercontent.com/d/1B2oS7GRbq_4eZzmz1F_hdI0KKiZqb2Fs=w800"
+    "img": "https://drive.google.com/thumbnail?id=1B2oS7GRbq_4eZzmz1F_hdI0KKiZqb2Fs&sz=w800"
   },
   {
     "id": "tortuga-econ",
@@ -2859,7 +2919,7 @@
     "driveId": "1CZD6Y2DGVJDkIWtYz9Iv150_FFsansaB",
     "notesEs": "Acceso a los 4 cenotes con chaleco y guía",
     "notesEn": "Guided access to all 4 natural cenotes with life jacket and certified guide.",
-    "img": "https://lh3.googleusercontent.com/d/1CZD6Y2DGVJDkIWtYz9Iv150_FFsansaB=w800"
+    "img": "https://drive.google.com/thumbnail?id=1CZD6Y2DGVJDkIWtYz9Iv150_FFsansaB&sz=w800"
   },
   {
     "id": "tortuga-silver",
@@ -2874,7 +2934,7 @@
     "driveId": "1ZHm9qyxqukoIOa-cwA-Ss544Vq0GDaKz",
     "notesEs": "Cenotes + tirolesas selváticas y comida buffet",
     "notesEn": "4 natural cenotes plus jungle zipline circuit and buffet lunch.",
-    "img": "https://lh3.googleusercontent.com/d/1ZHm9qyxqukoIOa-cwA-Ss544Vq0GDaKz=w800"
+    "img": "https://drive.google.com/thumbnail?id=1ZHm9qyxqukoIOa-cwA-Ss544Vq0GDaKz&sz=w800"
   },
   {
     "id": "tulum-akumal",
@@ -2889,7 +2949,7 @@
     "driveId": "1tnzW6Cz-6AD9TGwuYYzYBMM66ddE9sBl",
     "notesEs": "Ruinas Tulum y nado guiado con tortugas Akumal",
     "notesEn": "Tulum oceanfront ruins plus guided open-sea snorkeling with wild sea turtles.",
-    "img": "https://lh3.googleusercontent.com/d/1tnzW6Cz-6AD9TGwuYYzYBMM66ddE9sBl=w800"
+    "img": "https://drive.google.com/thumbnail?id=1tnzW6Cz-6AD9TGwuYYzYBMM66ddE9sBl&sz=w800"
   },
   {
     "id": "tulum-dos-ojos",
@@ -2904,7 +2964,7 @@
     "driveId": "1hr224aILTHbheOVGfcvc24993UR9qBze",
     "notesEs": "Cenote Dos Ojos y Gran Cenote",
     "notesEn": "Tulum coastal ruins combined with swimming in iconic Dos Ojos & Gran Cenote.",
-    "img": "https://lh3.googleusercontent.com/d/1hr224aILTHbheOVGfcvc24993UR9qBze=w800"
+    "img": "https://drive.google.com/thumbnail?id=1hr224aILTHbheOVGfcvc24993UR9qBze&sz=w800"
   },
   {
     "id": "sian-kaan",
@@ -2919,7 +2979,7 @@
     "driveId": "10ASG2tRWJCdM9-nM0NX89KQqo9TzRxox",
     "notesEs": "Reserva UNESCO delfines silvestres y canales mayas",
     "notesEn": "UNESCO Biosphere safari with wild dolphin watching, coral reef, and canal float.",
-    "img": "https://lh3.googleusercontent.com/d/10ASG2tRWJCdM9-nM0NX89KQqo9TzRxox=w800"
+    "img": "https://drive.google.com/thumbnail?id=10ASG2tRWJCdM9-nM0NX89KQqo9TzRxox&sz=w800"
   },
   {
     "id": "cenotes-yucatan",
@@ -2934,7 +2994,7 @@
     "driveId": "1oCx3QH0_5YfDH-mO2lnjDeOc70E8VR6F",
     "notesEs": "Cenotes en haciendas coloniales con comida típica",
     "notesEn": "Colonial hacienda cenote trail with traditional regional Mayan cuisine.",
-    "img": "https://lh3.googleusercontent.com/d/1oCx3QH0_5YfDH-mO2lnjDeOc70E8VR6F=w800"
+    "img": "https://drive.google.com/thumbnail?id=1oCx3QH0_5YfDH-mO2lnjDeOc70E8VR6F&sz=w800"
   },
   {
     "id": "aventura-cenote",
@@ -2949,7 +3009,7 @@
     "driveId": "13PhH2VtHhK5MtUMsf3TtNPqQGLC1UJyu",
     "notesEs": "Tirolesas sobre agua rappel y canotaje",
     "notesEn": "Overwater ziplines, jungle cave rappel, and kayak exploration in sacred waters.",
-    "img": "https://lh3.googleusercontent.com/d/13PhH2VtHhK5MtUMsf3TtNPqQGLC1UJyu=w800"
+    "img": "https://drive.google.com/thumbnail?id=13PhH2VtHhK5MtUMsf3TtNPqQGLC1UJyu&sz=w800"
   }
 ];
 
@@ -4360,16 +4420,28 @@ function navigate(pageId) {
     }
 
     function updateYachtCarousel() {
+      const container = document.getElementById("yachtsCarouselContainer");
       const track = document.getElementById("yachtsGridTrack");
-      if (!track) return;
+      if (!track || !container) return;
       const maxIndex = getMaxYachtIndex();
       if (yachtCarouselIndex > maxIndex) yachtCarouselIndex = maxIndex;
       if (yachtCarouselIndex < 0) yachtCarouselIndex = 0;
 
-      const isMobile = window.innerWidth < 640;
-      const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
-      const stepPercent = isMobile ? 86 : (isTablet ? 50 : 33.333);
-      track.style.transform = "translateX(-" + (yachtCarouselIndex * stepPercent) + "%)";
+      const slides = track.children;
+      let slideWidth = 0;
+      if (slides.length > 0 && slides[0]) {
+        slideWidth = slides[0].getBoundingClientRect().width;
+      }
+      if (!slideWidth) {
+        const isMobile = window.innerWidth < 640;
+        const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
+        const containerWidth = container.clientWidth || window.innerWidth;
+        slideWidth = isMobile ? (containerWidth * 0.85) : (isTablet ? (containerWidth * 0.5) : (containerWidth / 3));
+      }
+
+      const maxScroll = Math.max(0, track.scrollWidth - container.clientWidth);
+      const targetOffset = Math.min(yachtCarouselIndex * slideWidth, maxScroll);
+      track.style.transform = "translateX(-" + targetOffset + "px)";
 
       renderYachtCarouselDots();
     }
@@ -4544,7 +4616,7 @@ function navigate(pageId) {
 
       if (track) {
         track.innerHTML = YACHTS_FLEET.map(y => `
-          <div class="min-w-[86%] sm:min-w-[50%] lg:min-w-[33.333%] p-2 sm:p-3 flex-shrink-0">
+          <div class="w-[85%] min-w-[85%] max-w-[85%] sm:w-1/2 sm:min-w-[50%] sm:max-w-[50%] lg:w-1/3 lg:min-w-[33.333%] lg:max-w-[33.333%] p-2 sm:p-3 flex-shrink-0">
             ${generateCardHtml(y)}
           </div>
         `).join("");
@@ -5066,7 +5138,9 @@ function navigate(pageId) {
 
     function saveCart() { 
       ensureCartIds();
-      localStorage.setItem("clm_cart", JSON.stringify(cart)); 
+      try {
+        localStorage.setItem("clm_cart", JSON.stringify(cart)); 
+      } catch (e) {}
     }
 
     function loadCartFromStorage() { 
